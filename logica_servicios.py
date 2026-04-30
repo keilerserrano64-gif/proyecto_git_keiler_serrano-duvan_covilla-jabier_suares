@@ -1,3 +1,5 @@
+import gestorjson  
+
 def editar_servicio():
     servicios = gestorjson.cargar_datos()
     nombre_buscar = input("\nIngrese el nombre del paquete a editar: ")
@@ -7,7 +9,6 @@ def editar_servicio():
         if servicio['nombre'].lower() == nombre_buscar.lower():
             print(f"\nServicio encontrado: {servicio['nombre']}")
             
-            # Pedir nuevos datos (o presionar Enter para mantener actual)
             nuevo_precio = input(f"Nuevo precio (actual: {servicio['precio']}): ")
             if nuevo_precio: servicio['precio'] = float(nuevo_precio)
             
@@ -28,8 +29,7 @@ def editar_servicio():
 def eliminar_servicio():
     servicios = gestorjson.cargar_datos()
     nombre_eliminar = input("\nIngrese el nombre del paquete que desea eliminar: ")
-    
-    # Creamos una lista nueva sin el elemento que coincide con el nombre
+   
     nueva_lista = [s for s in servicios if s['nombre'].lower() != nombre_eliminar.lower()]
     
     if len(nueva_lista) < len(servicios):
@@ -37,7 +37,6 @@ def eliminar_servicio():
         print(f"El servicio '{nombre_eliminar}' ha sido eliminado.")
     else:
         print("No se encontró el servicio. No se realizaron cambios.")
-import gestorjson  
 
 def registrar_servicio():
     print("\n--- REGISTRO DE NUEVO SERVICIO FOTOGRÁFICO ---")
