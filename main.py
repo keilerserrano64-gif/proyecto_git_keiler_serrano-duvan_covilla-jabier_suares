@@ -1,18 +1,22 @@
 
+import logica_servicios
+
 def menu():
     while True:
-        print("--- SISTEMA PHOTOCAMPUS ---")
+        print("\n--- MENÚ PHOTOCAMPUS ---")
         print("1. Agregar Servicio")
         print("2. Editar Servicio")
         print("3. Eliminar Servicio")
-        print("4. Listar Servicios")
-        print("5. Salir")
+        print("4. Salir")
         
-        opcion = input("Seleccione una opción: ")
+        op = input("Seleccione: ")
         
-        if opcion == "1":
-            pass 
-        elif opcion == "5":
+        if op == "1":
+            logica_servicios.registrar_servicio()
+        elif op == "2":
+            logica_servicios.editar_servicio()
+        elif op == "3":
+            logica_servicios.eliminar_servicio()
+        elif op == "4":
             break
-
 menu()
